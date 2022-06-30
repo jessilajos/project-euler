@@ -19,7 +19,7 @@ type testcase struct {
 func TestProblems(t *testing.T) {
 	testcases := []testcase{
 		{"Problem 1", 1000, 233168, int(1e9), []testrunner{jessisolutionP1, prestonsolutionP1, jointsolutionP1}},
-		{"Problem 1", 4e6, 4613732, nil, []testrunner{}},
+		{"Problem 2", 4e6, 4613732, nil, []testrunner{}},
 	}
 
 	for _, tc := range testcases {
