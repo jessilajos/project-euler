@@ -19,7 +19,7 @@ type testcase struct {
 func TestProblems(t *testing.T) {
 	testcases := []testcase{
 		{"Problem 1", 1000, 233168, int(1e9), []testrunner{jessisolutionP1, prestonsolutionP1, jointsolutionP1}},
-		{"Problem 2", 4e6, 4613732, nil, []testrunner{}},
+		{"Problem 2", int(4e6), 4613732, int(10e16), []testrunner{prestonsolutionP2}},
 	}
 
 	for _, tc := range testcases {
@@ -38,9 +38,9 @@ func TestProblems(t *testing.T) {
 					return
 				}
 				start := time.Now()
-				name, _ := runner(tc.benchmark)
+				name, got := runner(tc.benchmark)
 				elapsed := time.Since(start)
-				t.Logf("completed: %s (%v)", name, elapsed)
+				t.Logf("completed: %s, got: %v (%v)", name, got, elapsed)
 			}
 		})
 	}

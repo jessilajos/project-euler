@@ -5,3 +5,21 @@ package projecteuler
 // 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, ...
 //
 // By considering the terms in the Fibonacci sequence whose values do not exceed four million, find the sum of the even-valued terms.
+
+func prestonsolutionP2(input interface{}) (string, interface{}) {
+	n := input.(int)
+
+	fnminus2 := 1
+	fnminus1 := 2
+	fn := 0
+	sum := 2
+	for fn < n {
+		fn = fnminus1 + fnminus2
+		if fn%2 == 0 {
+			sum += fn
+		}
+		fnminus2 = fnminus1
+		fnminus1 = fn
+	}
+	return "preston", sum
+}
